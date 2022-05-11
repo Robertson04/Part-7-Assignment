@@ -44,16 +44,19 @@
             this.btnRemoveAll = new System.Windows.Forms.Button();
             this.btnHeroAdd = new System.Windows.Forms.Button();
             this.btnHeroRemove = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAdd = new System.Windows.Forms.TextBox();
+            this.txtRemove = new System.Windows.Forms.TextBox();
+            this.btnSortDescending = new System.Windows.Forms.Button();
+            this.btnLowerCase = new System.Windows.Forms.Button();
+            this.btnUpperCase = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnNewNumbers
             // 
             this.btnNewNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewNumbers.Location = new System.Drawing.Point(12, 54);
+            this.btnNewNumbers.Location = new System.Drawing.Point(12, 48);
             this.btnNewNumbers.Name = "btnNewNumbers";
-            this.btnNewNumbers.Size = new System.Drawing.Size(111, 33);
+            this.btnNewNumbers.Size = new System.Drawing.Size(111, 52);
             this.btnNewNumbers.TabIndex = 0;
             this.btnNewNumbers.Text = "New List";
             this.btnNewNumbers.UseVisualStyleBackColor = true;
@@ -61,21 +64,21 @@
             // 
             // btnSortNumbers
             // 
-            this.btnSortNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSortNumbers.Location = new System.Drawing.Point(143, 54);
+            this.btnSortNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSortNumbers.Location = new System.Drawing.Point(143, 48);
             this.btnSortNumbers.Name = "btnSortNumbers";
-            this.btnSortNumbers.Size = new System.Drawing.Size(111, 33);
+            this.btnSortNumbers.Size = new System.Drawing.Size(111, 52);
             this.btnSortNumbers.TabIndex = 1;
-            this.btnSortNumbers.Text = "Sort";
+            this.btnSortNumbers.Text = "Ascending sort";
             this.btnSortNumbers.UseVisualStyleBackColor = true;
             this.btnSortNumbers.Click += new System.EventHandler(this.btnSortNumbers_Click);
             // 
             // btnNewHeroes
             // 
             this.btnNewHeroes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewHeroes.Location = new System.Drawing.Point(458, 54);
+            this.btnNewHeroes.Location = new System.Drawing.Point(458, 48);
             this.btnNewHeroes.Name = "btnNewHeroes";
-            this.btnNewHeroes.Size = new System.Drawing.Size(111, 33);
+            this.btnNewHeroes.Size = new System.Drawing.Size(111, 52);
             this.btnNewHeroes.TabIndex = 2;
             this.btnNewHeroes.Text = "New List";
             this.btnNewHeroes.UseVisualStyleBackColor = true;
@@ -84,9 +87,9 @@
             // btnSortHeroes
             // 
             this.btnSortHeroes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSortHeroes.Location = new System.Drawing.Point(599, 58);
+            this.btnSortHeroes.Location = new System.Drawing.Point(599, 48);
             this.btnSortHeroes.Name = "btnSortHeroes";
-            this.btnSortHeroes.Size = new System.Drawing.Size(111, 33);
+            this.btnSortHeroes.Size = new System.Drawing.Size(111, 52);
             this.btnSortHeroes.TabIndex = 3;
             this.btnSortHeroes.Text = "Sort";
             this.btnSortHeroes.UseVisualStyleBackColor = true;
@@ -199,6 +202,7 @@
             this.btnHeroAdd.TabIndex = 14;
             this.btnHeroAdd.Text = "Add";
             this.btnHeroAdd.UseVisualStyleBackColor = true;
+            this.btnHeroAdd.Click += new System.EventHandler(this.btnHeroAdd_Click);
             // 
             // btnHeroRemove
             // 
@@ -209,28 +213,63 @@
             this.btnHeroRemove.TabIndex = 15;
             this.btnHeroRemove.Text = "Remove";
             this.btnHeroRemove.UseVisualStyleBackColor = true;
+            this.btnHeroRemove.Click += new System.EventHandler(this.btnHeroRemove_Click);
             // 
-            // textBox1
+            // txtAdd
             // 
-            this.textBox1.Location = new System.Drawing.Point(534, 332);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(108, 20);
-            this.textBox1.TabIndex = 16;
+            this.txtAdd.Location = new System.Drawing.Point(534, 332);
+            this.txtAdd.Name = "txtAdd";
+            this.txtAdd.Size = new System.Drawing.Size(108, 20);
+            this.txtAdd.TabIndex = 16;
             // 
-            // textBox2
+            // txtRemove
             // 
-            this.textBox2.Location = new System.Drawing.Point(534, 410);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(108, 20);
-            this.textBox2.TabIndex = 17;
+            this.txtRemove.Location = new System.Drawing.Point(534, 410);
+            this.txtRemove.Name = "txtRemove";
+            this.txtRemove.Size = new System.Drawing.Size(108, 20);
+            this.txtRemove.TabIndex = 17;
+            // 
+            // btnSortDescending
+            // 
+            this.btnSortDescending.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSortDescending.Location = new System.Drawing.Point(143, -4);
+            this.btnSortDescending.Name = "btnSortDescending";
+            this.btnSortDescending.Size = new System.Drawing.Size(111, 52);
+            this.btnSortDescending.TabIndex = 18;
+            this.btnSortDescending.Text = "Descending sort";
+            this.btnSortDescending.UseVisualStyleBackColor = true;
+            this.btnSortDescending.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnLowerCase
+            // 
+            this.btnLowerCase.Location = new System.Drawing.Point(540, 9);
+            this.btnLowerCase.Name = "btnLowerCase";
+            this.btnLowerCase.Size = new System.Drawing.Size(91, 23);
+            this.btnLowerCase.TabIndex = 19;
+            this.btnLowerCase.Text = "Lower case list";
+            this.btnLowerCase.UseVisualStyleBackColor = true;
+            this.btnLowerCase.Click += new System.EventHandler(this.btnLowerCase_Click);
+            // 
+            // btnUpperCase
+            // 
+            this.btnUpperCase.Location = new System.Drawing.Point(652, 9);
+            this.btnUpperCase.Name = "btnUpperCase";
+            this.btnUpperCase.Size = new System.Drawing.Size(91, 23);
+            this.btnUpperCase.TabIndex = 20;
+            this.btnUpperCase.Text = "Upper cas list";
+            this.btnUpperCase.UseVisualStyleBackColor = true;
+            this.btnUpperCase.Click += new System.EventHandler(this.btnUpperCase_Click);
             // 
             // Part7Lists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnUpperCase);
+            this.Controls.Add(this.btnLowerCase);
+            this.Controls.Add(this.btnSortDescending);
+            this.Controls.Add(this.txtRemove);
+            this.Controls.Add(this.txtAdd);
             this.Controls.Add(this.btnHeroRemove);
             this.Controls.Add(this.btnHeroAdd);
             this.Controls.Add(this.btnRemoveAll);
@@ -273,8 +312,11 @@
         private System.Windows.Forms.Button btnRemoveAll;
         private System.Windows.Forms.Button btnHeroAdd;
         private System.Windows.Forms.Button btnHeroRemove;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtAdd;
+        private System.Windows.Forms.TextBox txtRemove;
+        private System.Windows.Forms.Button btnSortDescending;
+        private System.Windows.Forms.Button btnLowerCase;
+        private System.Windows.Forms.Button btnUpperCase;
     }
 }
 

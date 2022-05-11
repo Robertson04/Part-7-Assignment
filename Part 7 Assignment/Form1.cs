@@ -16,6 +16,7 @@ namespace Part_7_Assignment
         List<int> numbers = new List<int>();
         List<string> heroes = new List<string>();
         Random generator = new Random();
+        int totalremove = 0;
 
 
         public Part7Lists()
@@ -39,16 +40,14 @@ namespace Part_7_Assignment
         {
            
             numbers.Sort();
-            lstNumbers.DataSource = null;
-            lstNumbers.DataSource = numbers;
+            UpdateNumbers();
             lblStatus.Text = ("Numbers sorted");
         }
 
         private void btnSortHeroes_Click(object sender, EventArgs e)
         {
             heroes.Sort();
-            lstHeroes.DataSource = null;
-            lstHeroes.DataSource = heroes;
+            UpdateHeroes();
             lblStatus.Text = ("Heros sorted");
         }
 
@@ -57,10 +56,8 @@ namespace Part_7_Assignment
             numbers.Clear();
             for (int i = 0; i < 20; i++)
                 numbers.Add(generator.Next(100));
-            lstNumbers.DataSource = null;
-            lstNumbers.DataSource = numbers;
+            UpdateNumbers();
             lblStatus.Text = ("New numbers list");
-            btnRemove.Enabled = true;
         }
 
         private void btnNewHeroes_Click(object sender, EventArgs e)
@@ -68,22 +65,18 @@ namespace Part_7_Assignment
             heroes.Clear();
             heroes.Add("Super man");
             heroes.Add("Batman");
-            lstHeroes.DataSource = null;
-            lstHeroes.DataSource = heroes;
+            UpdateHeroes();
             lblStatus.Text = ("New heros list");
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (lstNumbers.SelectedIndex < 0)
-            {
                 lblStatus.Text = "No item selected";
-            }
             else
             {
                 numbers.RemoveAt((Int32)lstNumbers.SelectedIndex);
-                lstNumbers.DataSource = null;
-                lstNumbers.DataSource = numbers;
+                UpdateNumbers();
                 lblStatus.Text = ("Number removed");
             }
 
@@ -95,7 +88,68 @@ namespace Part_7_Assignment
 
         private void btnRemoveAll_Click(object sender, EventArgs e)
         {
-            while (numbers.Remove(Int32) = true)
+            if (lstNumbers.SelectedIndex < 0)
+                lblStatus.Text = "No item selected";
+            else
+                while (numbers.Remove((Int32)lstNumbers.SelectedItem))
+                {
+                    totalremove = totalremove + 1;
+                    lblStatus.Text = ($"Removed a total of{totalremove}");
+                }
+            totalremove = 0;
+
+            UpdateNumbers();
+
+        }
+        private void btnHeroRemove_Click(object sender, EventArgs e)
+        {
+            if (heroes.Remove(txtRemove.Text))
+            {
+                UpdateHeroes();
+                lblStatus.Text = ("Heroes removed");
+            }
+            else
+                lblStatus.Text = ("Hero not in list");
+        }
+        private void UpdateNumbers()
+        {
+            lstNumbers.DataSource = null;
+            lstNumbers.DataSource = numbers;
+        }
+        private void UpdateHeroes()
+        {
+            lstHeroes.DataSource = null;
+            lstHeroes.DataSource = heroes;
+        }
+
+        private void btnHeroAdd_Click(object sender, EventArgs e)
+        {
+            if (heroes.Contains(txtAdd.Text))
+                lblStatus.Text = ("Hero already in the list");
+            else 
+                heroes.Add(txtAdd.Text);
+                UpdateHeroes();
+                lblStatus.Text = ("Heroes add");
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            numbers.Sort();
+            numbers.Reverse();
+            UpdateNumbers();
+        }
+
+        private void btnLowerCase_Click(object sender, EventArgs e)
+        {
+            heroes = heroes.ConvertAll(low => low.ToLowerInvariant());
+            UpdateHeroes();
+        }
+
+        private void btnUpperCase_Click(object sender, EventArgs e)
+        {
+            heroes = heroes.ConvertAll(low => low.ToUpperInvariant());
+            UpdateHeroes();
         }
     }
 }
